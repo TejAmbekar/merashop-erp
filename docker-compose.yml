@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: mera_shop
+      POSTGRES_USER: mera
+      POSTGRES_PASSWORD: mera_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - mera_shop_pgdata:/var/lib/postgresql/data
+
+volumes:
+  mera_shop_pgdata:
