@@ -88,7 +88,7 @@ export default function Profit() {
                                   <span>₹{lineTotal.toLocaleString("en-IN")}</span>
                                 </div>
                               );
-                            })}
+                            })} 
                             <div style={{ display: "flex", justifyContent: "space-between", marginTop: "12px", fontWeight: 700 }}>
                               <span>Total</span>
                               <span>₹{Number(s.total || 0).toLocaleString("en-IN")}</span>
