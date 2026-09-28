@@ -83,7 +83,7 @@ export default function Profit() {
                                   style={{ display: "flex", justifyContent: "space-between", gap: "12px", padding: "8px 0", borderBottom: "1px solid #e5e7eb" }}
                                 >
                                   <span>
-                                    {index + 1}. {product?.name || "Unknown Product"} ({item.qty} {product?.unit || "unit"})
+                                    {index + 1}. {product?.name || "Unknown Product"} ({item.qty} {item.unit || product?.unit || "unit"})
                                   </span>
                                   <span>₹{lineTotal.toLocaleString("en-IN")}</span>
                                 </div>

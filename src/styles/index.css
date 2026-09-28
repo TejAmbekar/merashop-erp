@@ -772,6 +772,50 @@ td select {
   min-height: 38px;
 }
 
+.quantity-with-unit {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d5deea;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.quantity-with-unit:focus-within {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.13);
+}
+
+.quantity-with-unit input {
+  box-sizing: border-box;
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  min-height: 36px;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.quantity-with-unit input:focus {
+  border: 0;
+  box-shadow: none;
+}
+
+.quantity-unit {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding: 0 10px;
+  border-left: 1px solid #d5deea;
+  background: #f8fafc;
+  color: #475467;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
 .sale-form:has(td input:invalid)::before {
   content: "Sale quantity cannot exceed available stock.";
   display: block;

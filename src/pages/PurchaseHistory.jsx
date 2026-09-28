@@ -42,7 +42,7 @@ export default function PurchaseHistory() {
                             const label = product ? product.name : `Product #${item.productId}`;
                             return (
                               <span key={`${purchase.id}-${item.productId}-${index}`}>
-                                {label} · {Number(item.qty).toLocaleString("en-IN")}
+                                {label} · {Number(item.qty).toLocaleString("en-IN")} {item.unit}
                               </span>
                             );
                           })}

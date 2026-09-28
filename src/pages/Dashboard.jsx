@@ -5,7 +5,7 @@ export default function Dashboard() {
   const { products, sales, payLater, totalSales, totalPurchases, profit } = useERP();
   const stockValue = products.reduce((sum, product) => sum + Number(product.stock || 0) * Number(product.purchasePrice || 0), 0);
   const lowStockProducts = products.filter((product) => product.stock <= 5).slice(0, 3);
-  const totalStock = products.reduce((sum, product) => sum + Number(product.stock || 0), 0);
+  const stockedProductCount = products.filter((product) => Number(product.stock || 0) > 0).length;
   const today = new Date();
   const monthlySales = Array.from({ length: 6 }, (_, index) => {
     const monthDate = new Date(today.getFullYear(), today.getMonth() - 5 + index, 1);
@@ -62,8 +62,8 @@ export default function Dashboard() {
             <strong>{products.length}</strong>
           </div>
           <div className="overview-metric metric-stock">
-            <label>In Stock</label>
-            <strong>{totalStock.toLocaleString("en-IN")}</strong>
+            <label>Products in Stock</label>
+            <strong>{stockedProductCount.toLocaleString("en-IN")}</strong>
           </div>
           <div className="overview-metric metric-alert">
             <label>Buying Alerts</label>
@@ -80,7 +80,7 @@ export default function Dashboard() {
                   <span className="alert-pill danger">!</span>
                   <div>
                     <label>{product.name}</label>
-                    <strong>{product.stock} left</strong>
+                    <strong>{product.stock} {product.unit} left</strong>
                   </div>
                 </div>
               ))

@@ -30,9 +30,26 @@ CREATE TABLE IF NOT EXISTS purchase_items (
   purchase_id BIGINT NOT NULL REFERENCES purchases(id) ON DELETE CASCADE,
   product_id BIGINT NOT NULL REFERENCES products(id),
   qty NUMERIC(12, 3) NOT NULL CHECK (qty > 0),
+  unit TEXT NOT NULL DEFAULT 'Piece',
   price NUMERIC(12, 2) NOT NULL CHECK (price >= 0),
   line_total NUMERIC(12, 2) NOT NULL CHECK (line_total >= 0)
 );
+
+ALTER TABLE purchase_items ADD COLUMN IF NOT EXISTS unit TEXT;
+UPDATE purchase_items i SET unit = p.unit FROM products p WHERE i.product_id = p.id AND i.unit IS NULL;
+ALTER TABLE purchase_items ALTER COLUMN unit SET DEFAULT 'Piece';
+ALTER TABLE purchase_items ALTER COLUMN unit SET NOT NULL;
+
+CREATE OR REPLACE FUNCTION capture_product_unit() RETURNS trigger AS $$
+BEGIN
+  SELECT unit INTO NEW.unit FROM products WHERE id = NEW.product_id;
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+DROP TRIGGER IF EXISTS purchase_item_unit_snapshot ON purchase_items;
+CREATE TRIGGER purchase_item_unit_snapshot BEFORE INSERT ON purchase_items
+FOR EACH ROW EXECUTE FUNCTION capture_product_unit();
 
 CREATE TABLE IF NOT EXISTS sales (
   id BIGSERIAL PRIMARY KEY,
@@ -66,11 +83,21 @@ CREATE TABLE IF NOT EXISTS sale_items (
   sale_id BIGINT NOT NULL REFERENCES sales(id) ON DELETE CASCADE,
   product_id BIGINT NOT NULL REFERENCES products(id),
   qty NUMERIC(12, 3) NOT NULL CHECK (qty > 0),
+  unit TEXT NOT NULL DEFAULT 'Piece',
   price NUMERIC(12, 2) NOT NULL CHECK (price >= 0),
   cost_price NUMERIC(12, 2) NOT NULL CHECK (cost_price >= 0),
   line_total NUMERIC(12, 2) NOT NULL CHECK (line_total >= 0),
   line_profit NUMERIC(12, 2) NOT NULL
 );
+
+ALTER TABLE sale_items ADD COLUMN IF NOT EXISTS unit TEXT;
+UPDATE sale_items i SET unit = p.unit FROM products p WHERE i.product_id = p.id AND i.unit IS NULL;
+ALTER TABLE sale_items ALTER COLUMN unit SET DEFAULT 'Piece';
+ALTER TABLE sale_items ALTER COLUMN unit SET NOT NULL;
+
+DROP TRIGGER IF EXISTS sale_item_unit_snapshot ON sale_items;
+CREATE TRIGGER sale_item_unit_snapshot BEFORE INSERT ON sale_items
+FOR EACH ROW EXECUTE FUNCTION capture_product_unit();
 
 CREATE INDEX IF NOT EXISTS purchase_items_product_idx ON purchase_items(product_id);
 CREATE INDEX IF NOT EXISTS sale_items_product_idx ON sale_items(product_id);
