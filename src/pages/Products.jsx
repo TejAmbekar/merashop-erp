@@ -16,14 +16,14 @@ export default function Products() {
   const pages = Math.max(1, Math.ceil(filtered.length / pageSize));
   const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
   const setField = (key, value) => setForm(current => ({ ...current, [key]: value }));
-  const save = async event => { event.preventDefault(); setError(""); try { if (editing) await updateProduct(editing.id, { name: form.name, purchasePrice: form.purchasePrice, salePrice: form.salePrice, stock: form.stock, unit: form.unit }); else await addProduct(form); setForm(emptyForm); setEditing(null); setOpen(false); } catch (requestError) { setError(requestError.message); } };
+  const save = async event => { event.preventDefault(); setError(""); try { if (editing) await updateProduct(editing.id, { name: form.name, sku: form.sku, purchasePrice: form.purchasePrice, salePrice: form.salePrice, stock: form.stock, unit: form.unit }); else await addProduct(form); setForm(emptyForm); setEditing(null); setOpen(false); } catch (requestError) { setError(requestError.message); } };
   const edit = product => { setEditing(product); setForm({ ...product }); setOpen(true); setError(""); };
   return <>
     <div className="page-title"><div><h2>Products</h2><p>Manage products and opening stock.</p></div><button className="primary" onClick={() => { setEditing(null); setForm(emptyForm); setOpen(!open); }}>+ Add Product</button></div>
     {open && <form className="panel" onSubmit={save}>
       {error && <div className="error-banner">{error}</div>}
       <div className="form-grid">
-        {editing ? <><label>Product<input required value={form.name} onChange={event => setField("name", event.target.value)} /></label><label>SKU<input value={form.sku} readOnly /></label></> : <><label>Name<input required value={form.name} onChange={event => setField("name", event.target.value)} /></label><label>SKU<input required value={form.sku} onChange={event => setField("sku", event.target.value)} /></label></>}
+        {editing ? <><label>Product<input required value={form.name} onChange={event => setField("name", event.target.value)} /></label><label>SKU<input required value={form.sku} onChange={event => setField("sku", event.target.value)} /></label></> : <><label>Name<input required value={form.name} onChange={event => setField("name", event.target.value)} /></label><label>SKU<input required value={form.sku} onChange={event => setField("sku", event.target.value)} /></label></>}
         <label>Purchase Price<input type="number" min="0" step="0.01" inputMode="decimal" required value={form.purchasePrice} onChange={event => setField("purchasePrice", event.target.value)} /></label>
         <label>Sale Price<input type="number" min="0" step="0.01" inputMode="decimal" required value={form.salePrice} onChange={event => setField("salePrice", event.target.value)} /></label>
         <label>Stock ({form.unit || "unit"})<input type="number" min="0" step="0.01" inputMode="decimal" required value={form.stock} onChange={event => setField("stock", event.target.value)} /></label>
