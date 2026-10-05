@@ -438,6 +438,170 @@ header span {
   background: #f8fafc;
 }
 
+.pay-later-title { display: flex; align-items: center; gap: 16px; margin: 0 0 18px; }
+.pay-later-title-icon { display: grid; width: 54px; height: 54px; flex: 0 0 54px; place-items: center; border-radius: 13px; background: #e5efff; color: #2878e5; }
+.pay-later-title h2 { margin: 0 0 5px; color: #172b47; font-size: 25px; }
+.pay-later-title p { margin: 0; color: #687991; font-size: 13px; }
+.pay-later-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-bottom: 14px; }
+.pay-later-stat { display: flex; min-width: 0; min-height: 98px; align-items: center; gap: 14px; padding: 15px 17px; border: 1px solid; border-radius: 12px; background: #fff; }
+.pay-later-stat-icon { display: grid; width: 54px; height: 58px; flex: 0 0 54px; place-items: center; border-radius: 13px; }
+.pay-later-stat > div { min-width: 0; }
+.pay-later-stat > div > span,
+.pay-later-stat strong,
+.pay-later-stat small { display: block; }
+.pay-later-stat > div > span { color: #596b82; font-size: 12px; font-weight: 700; }
+.pay-later-stat strong { overflow: hidden; margin: 4px 0 2px; color: #17243a; font-size: 20px; text-overflow: ellipsis; white-space: nowrap; }
+.pay-later-stat small { color: #718096; font-size: 11px; }
+.pay-later-stat.blue { border-color: #d6e8ff; background: linear-gradient(115deg, #f1f7ff, #fff); }
+.pay-later-stat.blue .pay-later-stat-icon { background: #dcecff; color: #2170df; }
+.pay-later-stat.red { border-color: #f5dada; background: linear-gradient(115deg, #fff4f4, #fff); }
+.pay-later-stat.red .pay-later-stat-icon { background: #ffe2e2; color: #d84b4b; }
+.pay-later-stat.green { border-color: #d6f1e2; background: linear-gradient(115deg, #f0fbf5, #fff); }
+.pay-later-stat.green .pay-later-stat-icon { background: #d9f5e5; color: #0ea65e; }
+.pay-later-stat.violet { border-color: #e6dafa; background: linear-gradient(115deg, #faf5ff, #fff); }
+.pay-later-stat.violet .pay-later-stat-icon { background: #efe1ff; color: #8b46db; }
+
+.pay-later-list-panel { display: flex; flex-direction: column; gap: 11px; }
+.pay-later-toolbar { display: grid; grid-template-columns: minmax(250px, 1fr) 180px 245px; gap: 10px; margin: 0 0 2px; }
+.pay-later-search,
+.pay-later-filter,
+.pay-later-sort { position: relative; display: flex; min-width: 0; height: 42px; flex-direction: row; align-items: center; border: 1px solid #dce5ee; border-radius: 9px; background: #fff; }
+.pay-later-search { gap: 8px; padding: 0 12px; color: #7b8ba0; }
+.pay-later-search > svg { flex: 0 0 16px; }
+.pay-later-search input { flex: 1 1 auto; width: 0; min-width: 0; min-height: 38px; padding: 4px 0; border: 0; background: transparent; font-size: 12px; }
+.pay-later-search input:focus { border: 0; box-shadow: none; }
+.pay-later-search:focus-within { border-color: #78aaf0; box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); }
+.pay-later-filter select,
+.pay-later-sort select { flex: 1 1 auto; width: 0; min-width: 0; min-height: 40px; padding: 7px 28px 7px 12px; border: 0; background: transparent; font-size: 12px; }
+.pay-later-sort > svg { position: absolute; z-index: 1; left: 10px; color: #344054; pointer-events: none; }
+.pay-later-sort select { padding-left: 32px; }
+
+.pay-later-card { overflow: hidden; margin: 0; padding: 0; border: 1px solid #e6edf5; border-radius: 12px; background: #fff; box-shadow: 0 8px 22px rgba(25, 51, 81, 0.035); }
+.pay-later-card.expanded { border-color: #d9e8f8; box-shadow: 0 12px 28px rgba(25, 66, 109, 0.07); }
+.pay-later-card-header { display: grid; min-height: 68px; grid-template-columns: 46px minmax(140px, 1fr) auto minmax(330px, 1.3fr) 22px; align-items: center; gap: 14px; padding: 11px 16px; }
+.pay-later-avatar { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 50%; background: #e0edff; color: #2571dc; font-size: 16px; font-weight: 800; }
+.pay-later-customer { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
+.pay-later-customer strong { overflow: hidden; color: #1d2e48; font-size: 14px; text-overflow: ellipsis; white-space: nowrap; }
+.pay-later-customer small { overflow: hidden; color: #7a899d; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.pay-later-customer small i { display: inline-block; width: 3px; height: 3px; margin: 0 5px 2px; border-radius: 50%; background: #9aa7b7; }
+.pay-later-due { display: inline-flex; align-items: center; gap: 6px; padding: 6px 9px; border-radius: 999px; font-size: 10px; font-weight: 800; white-space: nowrap; }
+.pay-later-due.overdue { background: #ffe9e9; color: #d33232; }
+.pay-later-due.current { background: #e5f8ee; color: #13844c; }
+.pay-later-header-metrics { display: grid; grid-template-columns: repeat(3, minmax(75px, 1fr)); }
+.pay-later-header-metrics > span { display: flex; min-width: 0; flex-direction: column; gap: 3px; padding: 0 12px; border-left: 1px solid #e8edf3; }
+.pay-later-header-metrics small,
+.pay-later-expanded-summary small { color: #7b899c; font-size: 10px; }
+.pay-later-header-metrics b { overflow: hidden; color: #23344d; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.pay-later-header-metrics b.balance-due,
+.pay-later-expanded-summary .balance-due { color: #db3030; }
+.pay-later-header-metrics b.balance-paid,
+.pay-later-expanded-summary .balance-paid { color: #139455; }
+.pay-later-chevron { display: grid; width: 30px; height: 30px; place-items: center; border: 0; border-radius: 7px; background: transparent; color: #44566e; }
+.pay-later-chevron:hover { background: #f1f6fc; }
+.pay-later-card.expanded .pay-later-card-header { border-bottom: 1px solid #edf1f5; }
+.pay-later-expanded-content { padding: 0 16px 12px; }
+.pay-later-expanded-summary { display: grid; grid-template-columns: repeat(3, minmax(100px, 1fr)) auto; align-items: center; gap: 12px; padding: 11px 0; }
+.pay-later-expanded-summary > div { display: flex; min-height: 38px; flex-direction: column; justify-content: center; gap: 3px; padding: 0 12px; border-right: 1px solid #e8edf3; }
+.pay-later-expanded-summary > div:first-child { padding-left: 0; }
+.pay-later-expanded-summary strong { color: #24364f; font-size: 16px; }
+.pay-later-view-details { display: inline-flex; min-height: 34px; align-items: center; justify-content: center; gap: 7px; padding: 6px 11px; border: 1px solid #dfe8f2; border-radius: 8px; background: #fff; color: #36506f; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.pay-later-view-details svg { color: #2878df; }
+.pay-later-payment-history { margin: 0 0 11px; padding: 10px 9px 5px; border-radius: 8px; background: #f4f8fd; }
+.pay-later-payment-history h4 { margin: 0 0 8px 5px; color: #263950; font-size: 12px; }
+.pay-later-payment-history .table-wrap { margin: 0; }
+.pay-later-payment-history table { min-width: 640px; border: 1px solid #e6edf5; border-radius: 7px; background: #fff; }
+.pay-later-payment-history th { padding: 8px 10px; font-size: 9px; }
+.pay-later-payment-history td { padding: 7px 10px; font-size: 11px; }
+.pay-later-sale-details { grid-template-columns: 1fr; gap: 15px; }
+.pay-later-sale-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(125px, 1fr)); gap: 12px; }
+.pay-later-sale-meta > div { min-width: 0; }
+.pay-later-sale-meta b { color: #62738a; font-size: 10px; }
+.pay-later-sale-meta span { overflow-wrap: anywhere; color: #34485f; font-size: 12px; }
+.pay-later-sale-items h4 { margin: 0 0 8px; color: #263950; font-size: 12px; }
+.pay-later-sale-items .table-wrap { margin: 0; }
+.pay-later-sale-items table { min-width: 650px; background: #fff; }
+.pay-later-sale-items th { padding: 8px 10px; font-size: 9px; }
+.pay-later-sale-items td { padding: 7px 10px; font-size: 11px; }
+.pay-later-sale-items td:nth-child(2) { min-width: 150px; }
+.pay-later-upi-panel { display: flex; align-items: center; gap: 16px; margin-top: 12px; padding: 12px 14px; border: 1px solid #dce8f6; border-radius: 9px; background: #f5f9ff; }
+.pay-later-upi-panel > img { width: 132px; height: 132px; flex: 0 0 132px; padding: 5px; border: 1px solid #e2eaf3; border-radius: 7px; background: #fff; object-fit: contain; }
+.pay-later-upi-panel > div { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.pay-later-upi-panel strong { color: #253a56; font-size: 14px; }
+.pay-later-upi-panel span,
+.pay-later-upi-panel p { margin: 0; color: #65768d; font-size: 12px; }
+.pay-later-upi-panel a { color: #176bd1; font-size: 12px; font-weight: 700; text-decoration: underline; }
+.pay-later-upi-panel code { color: #354b66; font-size: 11px; }
+.payment-history-amount { color: #24364f; font-weight: 700; }
+.payment-method-pill { display: inline-flex; min-width: 54px; justify-content: center; padding: 5px 9px; border-radius: 999px; background: #e4f8ee; color: #16824a; font-size: 10px; font-weight: 700; text-transform: capitalize; }
+.payment-method-pill.upi { background: #eaf1ff; color: #2867c0; }
+.pay-later-expanded-content .payment-form { grid-template-columns: minmax(120px, 0.85fr) minmax(120px, 0.8fr) minmax(150px, 0.9fr) minmax(150px, 1fr) auto; align-items: end; gap: 9px; margin-top: 0; padding-top: 1px; border-top: 0; }
+.pay-later-expanded-content .payment-form label { min-width: 0; }
+.pay-later-expanded-content .payment-form input,
+.pay-later-expanded-content .payment-form select { min-width: 0; min-height: 39px; padding: 7px 10px; font-size: 12px; }
+.pay-later-expanded-content .payment-form .primary { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; gap: 6px; padding: 8px 12px; font-size: 11px; white-space: nowrap; }
+.pay-later-empty { display: flex; min-height: 170px; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #8290a3; }
+.pay-later-empty svg { color: #40a77a; }
+.pay-later-empty strong { color: #34485f; font-size: 14px; }
+.pay-later-empty span { font-size: 12px; }
+.pay-later-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding-top: 3px; color: #586a82; font-size: 12px; }
+.pay-later-pagination { gap: 8px; margin: 0; }
+.pay-later-pagination .secondary { padding: 8px 11px; font-size: 11px; }
+.pay-later-pagination > span { min-width: 75px; text-align: center; }
+
+@media (max-width: 1120px) {
+  .pay-later-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pay-later-card-header { grid-template-columns: 44px minmax(140px, 1fr) auto 30px; }
+  .pay-later-header-metrics { grid-column: 2 / 4; grid-row: 2; margin-top: 8px; }
+  .pay-later-card-header { padding-top: 12px; padding-bottom: 12px; }
+  .pay-later-expanded-content .payment-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pay-later-expanded-content .payment-form .primary { grid-column: 1 / -1; }
+}
+
+@media (max-width: 700px) {
+  .pay-later-title { align-items: flex-start; gap: 12px; }
+  .pay-later-title-icon { width: 44px; height: 44px; flex-basis: 44px; }
+  .pay-later-title h2 { font-size: 21px; }
+  .pay-later-stats { gap: 8px; }
+  .pay-later-stat { min-height: 84px; gap: 9px; padding: 10px 9px; }
+  .pay-later-stat-icon { width: 40px; height: 44px; flex-basis: 40px; }
+  .pay-later-stat-icon svg { width: 20px; }
+  .pay-later-stat > div > span { font-size: 10px; }
+  .pay-later-stat strong { font-size: 16px; }
+  .pay-later-stat small { font-size: 9px; }
+  .pay-later-toolbar { grid-template-columns: minmax(0, 1fr) minmax(130px, 0.8fr); }
+  .pay-later-search { grid-column: 1 / -1; }
+  .pay-later-sort { grid-column: 1 / -1; }
+  .pay-later-card-header { grid-template-columns: 38px minmax(0, 1fr) auto 30px; gap: 8px; padding: 10px; }
+  .pay-later-avatar { width: 36px; height: 36px; }
+  .pay-later-customer strong { font-size: 12px; }
+  .pay-later-customer small { font-size: 9px; }
+  .pay-later-due { grid-column: 3; font-size: 9px; }
+  .pay-later-header-metrics { grid-column: 2 / 4; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 4px; }
+  .pay-later-header-metrics > span { padding: 0 7px; }
+  .pay-later-header-metrics b { font-size: 10px; }
+  .pay-later-expanded-content { padding: 0 10px 10px; }
+  .pay-later-expanded-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; }
+  .pay-later-expanded-summary > div { min-width: 0; padding: 0 7px; }
+  .pay-later-expanded-summary strong { font-size: 13px; }
+  .pay-later-view-details { grid-column: 1 / -1; }
+  .pay-later-expanded-content .payment-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pay-later-expanded-content .payment-form .primary { grid-column: 1 / -1; }
+  .pay-later-upi-panel > img { width: 108px; height: 108px; flex-basis: 108px; }
+  .pay-later-footer { align-items: flex-start; flex-direction: column; justify-content: center; padding: 10px 0; }
+  .pay-later-pagination { width: 100%; justify-content: space-between; }
+}
+
+@media (max-width: 380px) {
+  .pay-later-stats .pay-later-stat { align-items: flex-start; flex-direction: column; }
+  .pay-later-stat small { font-size: 9px; }
+  .pay-later-toolbar { grid-template-columns: minmax(0, 1fr); }
+  .pay-later-search,
+  .pay-later-sort { grid-column: auto; }
+  .pay-later-card-header { grid-template-columns: 34px minmax(0, 1fr) auto 30px; }
+  .pay-later-header-metrics { grid-column: 2 / 4; }
+  .pay-later-upi-panel { align-items: flex-start; flex-direction: column; }
+}
+
 .empty {
   color: #667085;
   padding: 14px 0 6px;
