@@ -3,20 +3,13 @@ import { ArrowDownUp, CalendarDays, ChevronDown, ChevronUp, Eye, FileClock, Pack
 import { useERP } from "../context/ERPContext";
 
 const pageSize = 8;
-const localDateInput = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-const initialDateRange = () => {
-  const today = new Date();
-  const end = new Date(today.getFullYear(), today.getMonth(), 0);
-  const start = new Date(end.getFullYear(), end.getMonth(), 1);
-  return { from: localDateInput(start), to: localDateInput(end) };
-};
 const money = value => `Rs. ${Number(value || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 const quantity = value => Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: 3 });
 
 export default function PurchaseHistory() {
   const { purchases, products } = useERP();
   const [expandedId, setExpandedId] = useState(null);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState({ from: "", to: "" });
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("date-desc");
   const [page, setPage] = useState(1);
