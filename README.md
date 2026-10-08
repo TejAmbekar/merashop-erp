@@ -19,6 +19,10 @@ npm run dev
 
 Open the local URL shown by Vite, normally http://localhost:5173/
 
+## Deploying the frontend to Vercel
+
+The frontend uses React Router, so `vercel.json` rewrites direct requests for app routes (such as `/inventory`) to `index.html`. This allows those routes to load after a refresh. Redeploy the project on Vercel after adding or changing this configuration.
+
 ## Main logic
 
 - Purchase increases product stock.
