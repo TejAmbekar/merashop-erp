@@ -30,7 +30,7 @@ The frontend uses React Router, so `vercel.json` rewrites direct requests for ap
 - Sale quantity cannot exceed available stock.
 - Completing a sale decreases inventory.
 - Profit = sale price - purchase price, multiplied by sold quantity.
-- Data is persisted in PostgreSQL. The API creates its tables and seeds the starter products on first start.
+- Data is persisted in PostgreSQL. The API creates and updates its tables on startup; products are added manually through the Products page.
 - Purchase, Sale, Inventory, Products and Profit pages are included.
 
 ## Backend

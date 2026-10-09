@@ -106,9 +106,3 @@ CREATE INDEX IF NOT EXISTS purchase_items_product_idx ON purchase_items(product_
 CREATE INDEX IF NOT EXISTS sale_items_product_idx ON sale_items(product_id);
 CREATE INDEX IF NOT EXISTS sales_date_idx ON sales(sale_date);
 CREATE INDEX IF NOT EXISTS pay_later_payments_sale_idx ON pay_later_payments(sale_id);
-
-INSERT INTO products (name, sku, purchase_price, sale_price, stock, unit) VALUES
-  ('Rice 25kg', 'RICE25', 1100, 1350, 20, 'Bag'),
-  ('Wheat 10kg', 'WHEAT10', 520, 650, 35, 'Bag'),
-  ('Sugar 5kg', 'SUGAR5', 230, 290, 50, 'Pack')
-ON CONFLICT (sku) DO NOTHING;
