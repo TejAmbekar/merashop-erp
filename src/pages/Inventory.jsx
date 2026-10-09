@@ -6,7 +6,7 @@ import ProductThumbnail from "../components/ProductThumbnail";
 const pageSize = 8;
 const statusOf = product => Number(product.stock) === 0 ? "out" : Number(product.stock) <= 5 ? "low" : "in";
 const quantity = value => Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: 2 });
-const rupees = value => `Rs. ${Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
+const rupees = value => `Rs. ${Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: 2 })}`;
 
 export default function Inventory() {
   const { products } = useERP();
