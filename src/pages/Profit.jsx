@@ -3,19 +3,12 @@ import { ArrowDownUp, BarChart3, CalendarDays, IndianRupee, ClipboardList, Eye, 
 import { useERP } from "../context/ERPContext";
 
 const pageSize = 8;
-const localDateInput = date => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-const initialDateRange = () => {
-  const today = new Date();
-  const end = new Date(today.getFullYear(), today.getMonth(), 0);
-  const start = new Date(end.getFullYear(), end.getMonth(), 1);
-  return { from: localDateInput(start), to: localDateInput(end) };
-};
 const formatRupees = value => `₹${Number(value || 0).toLocaleString("en-IN", { maximumFractionDigits: 0 })}`;
 
 export default function Profit() {
   const { sales, profit, totalSales, products } = useERP();
   const [expandedSaleId, setExpandedSaleId] = useState(null);
-  const [dateRange, setDateRange] = useState(initialDateRange);
+  const [dateRange, setDateRange] = useState({ from: "", to: "" });
   const [customerFilter, setCustomerFilter] = useState("all");
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState("date-desc");
